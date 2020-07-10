@@ -101,6 +101,11 @@ sdk_lib = library('gd32vf103_sdk',
 
 install_headers(headers, subdir: 'gd32vf103')
 
+# Copy the linker scripts to an understood location
+install_subdir('Firmware/RISCV/env_Eclipse/',
+	       install_dir: 'share/lds/gd32vf103',
+	       strip_directory: true)
+
 pkg = import('pkgconfig')
 libs = [sdk_lib]
 h = ['gd32vf103']
